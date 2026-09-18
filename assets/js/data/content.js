@@ -103,7 +103,7 @@ export const CONTENT = {
         num: "02",
         titulo: "projects",
         caminho: "./projects",
-        nota: "ls -l — o que já saiu do directório de testes.",
+        nota: "ls -lh — o que já saiu do directório de testes.",
         itens: [{
                 id: "minishell",
                 nome: "./minishell",
