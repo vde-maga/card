@@ -9,7 +9,11 @@
 
 .hero__name{position:relative;border-left:3px solid var(--sig);padding-left:clamp(.8rem,2.4vw,1.4rem)}
 .hero__line{display:block}
-.hero__say{margin-top:1.4rem;max-width:34ch}
+.hero__say{
+  margin-top:1.4rem;
+  max-width:34ch;
+  white-space:pre-line;
+}
 .hero__sum{margin-top:1rem;font-size:.82rem;color:var(--mute);max-width:52ch;line-height:1.85}
 .hero__sum b{color:var(--bone);font-weight:500}
 
@@ -73,7 +77,9 @@
   font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);
   transition:border-color .2s,color .2s;
 }
-.chip::before{content:"· ";color:var(--sig)}
+.chip::before{
+	/* content:"· "; */
+	color:var(--sig)}
 .chip:hover{border-color:var(--sig);color:var(--bone)}
 
 /* ---------- PROJECTS ---------- */

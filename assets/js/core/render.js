@@ -74,12 +74,12 @@ function renderHero(h) {
       el("div", { class: "hero__name", "data-reveal": "" }, lines),
       el("p", { class: "serif hero__say", "data-reveal": "", style: "--i:1", text: h.frase }),
       el("p", { class: "hero__sum", "data-reveal": "", style: "--i:2", html: h.resumo }),
-      el("dl", { class: "meta", "data-reveal": "", style: "--i:3" },
-        h.dados.map((d) => el("div", {}, [
-          el("dt", { text: d.k }),
-          el("dd", { text: d.v }),
-        ]))
-      ),
+    //   el("dl", { class: "meta", "data-reveal": "", style: "--i:3" },
+    //     h.dados.map((d) => el("div", {}, [
+    //       el("dt", { text: d.k }),
+    //       el("dd", { text: d.v }),
+    //     ]))
+    //   ),
       el("div", { class: "acts", "data-reveal": "", style: "--i:4" },
         h.acoes.map((a) =>
           el("a", {
@@ -111,14 +111,14 @@ function renderAbout(a) {
       ]),
       el("div", {}, [
         el("div", { class: "sheet", "data-reveal": "", style: "--i:1" }, [
-          el("div", { class: "sheet__hd" }, [
-            el("span", { class: "micro", text: "ficha" }),
-            el("span", { class: "micro micro--sig", text: a.num + "/05" }),
-          ]),
-          el("dl", {}, a.ficha.flatMap((f) => [
-            el("dt", { text: f.k }),
-            el("dd", { text: f.v }),
-          ])),
+        //   el("div", { class: "sheet__hd" }, [
+        //     el("span", { class: "micro", text: "ficha" }),
+        //     el("span", { class: "micro micro--sig", text: a.num + "/05" }),
+        //   ]),
+        //   el("dl", {}, a.ficha.flatMap((f) => [
+        //     el("dt", { text: f.k }),
+        //     el("dd", { text: f.v }),
+        //   ])),
         ]),
         el("div", { class: "chips", "data-reveal": "", style: "--i:2" },
           a.interesses.map((t) => el("span", { class: "chip", text: t }))),
