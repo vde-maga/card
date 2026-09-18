@@ -109,65 +109,12 @@ export const CONTENT = {
                 nome: "./minishell",
                 tipo: "c · 42",
                 ano: "2026",
-                desc: "Um shell próprio: lexer, parser, expansão, pipes e jobs. Aprendi o que é realmente um processo no dia em que precisei de o matar.",
-                tags: ["c", "posix", "sinais", "readline"],
-                thumb: "", // assets/img/projects/minishell.jpg
+                desc: "An implementation of a Unix shell in the C language that offers basic command interpreter functionality, including parsing, command execution, redirection, pipes, and environment variable manipulation.",
+                tags: ["c", "posix", "signals", "readline", "AST"],
+                thumb: "/assets/img/projects/minishell.jpeg",
                 links: [{
                         label: "repo",
-                        href: "https://github.com/"
-                    },
-                    {
-                        label: "notas",
-                        href: "#"
-                    },
-                ],
-            },
-            {
-                id: "raymarcher",
-                nome: "./raymarcher",
-                tipo: "glsl · web",
-                ano: "2025",
-                desc: "Render sem assets: uma cena descrita em 40 linhas de distância assinada, a correr a 144 Hz num portátil de 2014.",
-                tags: ["glsl", "webgl", "sdf", "matemática"],
-                thumb: "",
-                links: [{
-                        label: "demo",
-                        href: "#"
-                    },
-                    {
-                        label: "repo",
-                        href: "https://github.com/"
-                    },
-                ],
-            },
-            {
-                id: "noise-print",
-                nome: "./noise-print",
-                tipo: "python · gráfica",
-                ano: "2025",
-                desc: "Gerador de gravuras: ruído de valor, dithering de Bayer e uma impressora a jacto de tinta a receber PostScript cru.",
-                tags: ["python", "postscript", "bayer", "print"],
-                thumb: "",
-                links: [{
-                    label: "repo",
-                    href: "https://github.com/"
-                }],
-            },
-            {
-                id: "sinal",
-                nome: "./sinal",
-                tipo: "c · cli",
-                ano: "2024",
-                desc: "Compara duas árvores de directórios e devolve apenas o que mudou, em bytes, para stdout. Sem dependências, sem cores.",
-                tags: ["c", "fs", "unix", "0 deps"],
-                thumb: "",
-                links: [{
-                        label: "repo",
-                        href: "https://github.com/"
-                    },
-                    {
-                        label: "aUR",
-                        href: "#"
+                        href: "https://github.com/vde-maga/42-minishell"
                     },
                 ],
             },
@@ -182,10 +129,10 @@ export const CONTENT = {
         caminho: "./gallery",
         nota: "/dev/video0 — frames roubadas, estudos e saídas de impressora.",
         itens: [{
-                src: "",
-                legenda: "estudo de silhueta",
+                src: "/assets/img/gallery/test.gif",
+                legenda: "Girassol Plants vs. Zombies",
                 meta: "krita · 2026",
-                size: "w"
+                size: ""
             },
             {
                 src: "",
@@ -321,7 +268,7 @@ export const CONTENT = {
                 linkLabel: "oi@example.pt"
             },
         ],
-        licenca: "© 2026 · conteúdo próprio · código MIT",
+        licenca: "© 2026 · conteúdo próprio · código AGPLV3",
     },
 
     /* --- ROLAGEM INFINITA --------------------------------------------------- */

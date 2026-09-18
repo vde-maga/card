@@ -46,21 +46,9 @@ function renderHero(h) {
 
   const sigil = el("div", { class: "sigil", "aria-hidden": "true" }, [
     el("div", {
-      html: `<svg viewBox="0 0 200 200">
-        <g class="rot" fill="none" stroke="currentColor" stroke-width="1" opacity=".35">
-          <circle cx="100" cy="100" r="96" stroke-dasharray="3 7"/>
-        </g>
-        <g class="rot-r">
-          <circle cx="100" cy="100" r="74" fill="none" stroke="#5f7488" stroke-width="1.5"/>
-          <path d="M100 26 174 100 100 174 26 100Z" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".55"/>
-        </g>
-        <path d="M100 100 m-52 0 a52 52 0 0 1 104 0Z" fill="#ff2b17"/>
-        <circle cx="100" cy="100" r="52" fill="none" stroke="#ff2b17" stroke-width="2.5"/>
-        <path d="M100 8v56M100 136v56M8 100h56M136 100h56" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="96" y="96" width="8" height="8" fill="currentColor"/>
-      </svg>`,
+      html: `<img src="./assets/img/output.png" alt="Me and My Girlfriend">`,
     }),
-    el("span", { class: "cap", text: h.sigil?.codigo ?? "" }),
+    // el("span", { class: "cap", text: h.sigil?.codigo ?? "" }),
   ]);
 
   return el("div", { class: "hero" }, [

@@ -51,7 +51,12 @@
 
 .crt__vig{
   inset:0;
-  box-shadow:inset 0 0 200px 60px rgba(0,0,0,.85), inset 0 0 60px rgba(0,0,0,.5);
+  background:radial-gradient(
+    120% 95% at 50% 50%,
+    transparent 62%,
+    rgba(0,0,0,.62) 100%
+  );
+  opacity:.72;
 }
 html[data-signal="off"] .crt{display:none}
 
@@ -114,4 +119,29 @@ html[data-signal="off"] .crt{display:none}
   .crt__grain,.crt__grid,.crt__tear,.ticker__track,.sigil .rot,.sigil .rot-r,.bars i,.status__cursor{animation:none!important}
   [data-reveal],[data-mask]{opacity:1!important;transform:none!important;clip-path:none!important}
   .mega::before,.mega::after{display:none}
+}
+
+@media (max-width: 900px){
+  .crt__vig{
+    background:radial-gradient(
+      150% 120% at 50% 50%,
+      transparent 76%,
+      rgba(0,0,0,.34) 100%
+    );
+    opacity:.52;
+  }
+}
+
+@media (max-width: 640px){
+  .crt__vig{
+    display:none;
+  }
+
+  .crt__scan{
+    opacity:.22;
+  }
+
+  .crt__grain{
+    opacity:.035;
+  }
 }
