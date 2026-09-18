@@ -1,0 +1,117 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fx.css                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: student <student@student.42.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/19 00:00:00 by student             #+#    #+#             */
+/*   Updated: 2026/09/19 00:00:00 by student                ###   ########.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* camada única de ambiente CRT + arranque + revelações.
+   tudo em transform/opacity para não pintar o ecrã inteiro em cada frame. */
+
+.crt{position:fixed;inset:0;z-index:100;pointer-events:none}
+.crt>span{position:absolute;display:block}
+
+.crt__grid{
+  inset:-10%;
+  background-image:
+    linear-gradient(to right,rgba(95,116,136,.10) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(95,116,136,.10) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(60% 55% at 50% 45%,#000 20%,transparent 75%);
+  animation:drift 24s linear infinite;
+}
+@keyframes drift{to{transform:translate3d(44px,44px,0)}}
+
+.crt__grain{
+  inset:-60px;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:jump .6s steps(4) infinite;
+}
+@keyframes jump{
+  0%{transform:translate3d(0,0,0)}25%{transform:translate3d(-18px,10px,0)}
+  50%{transform:translate3d(12px,-14px,0)}75%{transform:translate3d(-8px,-6px,0)}
+  100%{transform:translate3d(0,0,0)}
+}
+
+.crt__scan{
+  inset:0;opacity:.5;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.30) 0 1px,transparent 1px 3px);
+}
+.crt__tear{
+  left:0;right:0;height:120px;top:-140px;
+  background:linear-gradient(to bottom,transparent,rgba(234,231,224,.055) 45%,rgba(255,43,23,.05) 55%,transparent);
+  animation:tear 11s var(--ease) infinite;
+}
+@keyframes tear{0%,72%{transform:translateY(0);opacity:0}74%{opacity:1}100%{transform:translateY(120vh);opacity:0}}
+
+.crt__vig{
+  inset:0;
+  box-shadow:inset 0 0 200px 60px rgba(0,0,0,.85), inset 0 0 60px rgba(0,0,0,.5);
+}
+html[data-signal="off"] .crt{display:none}
+
+/* retículo do cursor */
+.reticle{
+  position:fixed;left:0;top:0;z-index:140;width:44px;height:44px;margin:-22px 0 0 -22px;
+  color:var(--sig);pointer-events:none;opacity:0;transition:opacity .35s;mix-blend-mode:screen;
+}
+.reticle em{
+  position:absolute;top:46px;left:-6px;font-family:var(--ff-mono);font-style:normal;
+  font-size:.5rem;letter-spacing:.14em;color:var(--steel);white-space:nowrap;
+}
+.reticle.is-on{opacity:.85}
+@media (hover:none),(pointer:coarse){.reticle{display:none}}
+
+/* arranque */
+.boot{
+  position:fixed;inset:0;z-index:200;background:var(--void);
+  display:grid;place-items:center;padding:1.5rem;
+  clip-path:inset(0 0 0 0);transition:clip-path .5s var(--ease),opacity .3s .1s;
+}
+.boot.is-out{clip-path:inset(0 0 100% 0);opacity:0}
+.boot[hidden]{display:none}
+.boot__log{
+  font-family:var(--ff-mono);font-size:clamp(.6rem,1.6vw,.78rem);line-height:1.9;
+  color:var(--steel);white-space:pre-wrap;width:min(620px,92vw);min-height:14em;
+}
+.boot__log b{color:var(--sig);font-weight:400}
+.boot__log i{color:var(--bone);font-style:normal}
+.boot__flash{position:absolute;inset:0;background:var(--sig);opacity:0;pointer-events:none}
+.boot.is-flash .boot__flash{animation:flash .22s steps(2) 1}
+@keyframes flash{0%{opacity:0}30%{opacity:.9}60%{opacity:0}85%{opacity:.5}100%{opacity:0}}
+
+/* revelação por scroll */
+[data-reveal]{opacity:0;transform:translateY(16px);
+  transition:opacity .75s var(--ease),transform .75s var(--ease);
+  transition-delay:calc(var(--i,0)*65ms)}
+[data-reveal].is-in{opacity:1;transform:none}
+[data-mask]{clip-path:inset(0 100% 0 0);transition:clip-path .8s var(--ease);transition-delay:calc(var(--i,0)*65ms)}
+[data-mask].is-in{clip-path:inset(0 0 0 0)}
+
+/* glitch periódico do mega-título */
+.mega{position:relative}
+.mega::before,.mega::after{
+  content:attr(data-text);position:absolute;left:0;top:0;width:100%;
+  opacity:0;pointer-events:none;
+}
+.mega::before{color:var(--sig);clip-path:inset(0 0 58% 0);transform:translate(-3px,-2px)}
+.mega::after{color:var(--steel);clip-path:inset(56% 0 0 0);transform:translate(3px,2px)}
+.is-glitching .mega::before{opacity:.85}
+.is-glitching .mega::after{opacity:.7}
+.is-glitching .hero__name{animation:jitter .18s steps(2) 1}
+@keyframes jitter{0%{transform:translate(0)}33%{transform:translate(-2px,1px)}66%{transform:translate(2px,-1px)}100%{transform:translate(0)}}
+
+/* scramble */
+[data-scramble]{transition:color .3s}
+.is-scrambling{color:var(--sig)}
+
+@media (prefers-reduced-motion:reduce){
+  .crt__grain,.crt__grid,.crt__tear,.ticker__track,.sigil .rot,.sigil .rot-r,.bars i,.status__cursor{animation:none!important}
+  [data-reveal],[data-mask]{opacity:1!important;transform:none!important;clip-path:none!important}
+  .mega::before,.mega::after{display:none}
+}

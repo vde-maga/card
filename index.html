@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt" data-mode="nerv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#050506">
+<title>n.marques — ./index</title>
+<meta name="description" content="Índice. Software, imagem, ruído.">
+<meta property="og:title" content="n.marques — ./index">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800&family=Tinos:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/type.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/fx.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0f12'/><circle cx='16' cy='16' r='8' fill='none' stroke='%23ff2b17' stroke-width='2'/><rect x='15' y='2' width='2' height='28' fill='%23eae7e0'/></svg>">
+<script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+
+<!-- camadas de ambiente -->
+<div class="crt" aria-hidden="true">
+  <span class="crt__grid"></span>
+  <span class="crt__grain"></span>
+  <span class="crt__scan"></span>
+  <span class="crt__tear"></span>
+  <span class="crt__vig"></span>
+</div>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+<div id="reticle" class="reticle" aria-hidden="true">
+  <svg viewBox="0 0 44 44" width="44" height="44">
+    <circle cx="22" cy="22" r="13" fill="none" stroke="currentColor" stroke-width="1"/>
+    <path d="M22 0v12M22 32v12M0 22h12M32 22h12" stroke="currentColor" stroke-width="1"/>
+    <rect x="21" y="21" width="2" height="2" fill="currentColor"/>
+  </svg>
+  <em id="reticle-coord">0000,0000</em>
+</div>
+<div id="boot" class="boot" aria-hidden="true"><pre id="boot-log" class="boot__log"></pre><span class="boot__flash"></span></div>
+
+<a class="skip" href="#hero">saltar para o índice</a>
+
+<main class="shell" id="shell">
+
+  <header class="status" id="status">
+    <span class="status__mark" data-mode-toggle role="button" tabindex="0" aria-label="alternar paleta">◉</span>
+    <span class="status__prompt">nerv@lisboa</span>
+    <span class="status__sep">:</span>
+    <span class="status__path" id="active-path">~</span>
+    <span class="status__sep">$</span>
+    <span class="status__cursor" aria-hidden="true"></span>
+    <span class="status__spacer"></span>
+    <span class="status__clock" id="clock">--:--:--</span>
+    <span class="status__utc" id="clock-utc">UTC+00</span>
+    <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="status__pos" id="scroll-pos">0x0000</span>
+  </header>
+
+  <aside class="rail rail--l" aria-hidden="true">
+    <span>automatic takeover · pending</span>
+    <span>/dev/sig0</span>
+  </aside>
+  <aside class="rail rail--r" aria-hidden="true">
+    <span>neon genesis · interface</span>
+    <span id="rail-year">2026</span>
+  </aside>
+
+  <div class="stack">
+    <section id="hero"     class="sec sec--hero" data-mount="hero"></section>
+    <section id="about"    class="sec" data-mount="about"    data-path="./about"></section>
+    <section id="projects" class="sec" data-mount="projects" data-path="./projects"></section>
+    <section id="gallery"  class="sec" data-mount="gallery"  data-path="./gallery"></section>
+    <section id="links"    class="sec" data-mount="links"    data-path="./links"></section>
+    <section id="colophon" class="sec sec--colo" data-mount="colophon"></section>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker__track" id="ticker"></div></div>
+
+  <form class="term" id="term" autocomplete="off">
+    <div class="term__out" id="term-out" role="log" aria-live="polite"></div>
+    <div class="term__line">
+      <label class="term__ps1" for="term-input">visitor@nerv:~$</label>
+      <input class="term__input" id="term-input" type="text" spellcheck="false"
+             autocapitalize="off" placeholder="help" aria-label="consola">
+      <button class="term__go" type="submit">run</button>
+    </div>
+  </form>
+
+</main>
+
+<div class="lb" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="visualizador de imagem">
+  <button class="lb__close" id="lb-close" type="button" aria-label="fechar [esc]">✕</button>
+  <button class="lb__nav lb__nav--p" id="lb-prev" type="button" aria-label="anterior">◄</button>
+  <button class="lb__nav lb__nav--n" id="lb-next" type="button" aria-label="seguinte">►</button>
+  <figure class="lb__fig"><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <div class="lb__count" id="lb-count">00/00</div>
+</div>
+
+<noscript>
+  <div class="noscript">
+    <b>JAVASCRIPT DESATIVADO.</b><br>
+    este índice é gerado a partir de <code>assets/js/data/content.js</code>.<br>
+    ativa o JS, ou lê o ficheiro diretamente — está comentado.
+  </div>
+</noscript>
+
+</body>
+</html>

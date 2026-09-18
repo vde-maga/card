@@ -1,0 +1,87 @@
+
+
+/* o retângulo central. mesmo em 1920x1080 isto continua a ser uma coluna
+   de ~1024px, ladeada por trilhos verticais e pelo campo frio. */
+
+.shell{
+  position:relative;
+  width:min(var(--shell-w),100% - 1.5rem);
+  margin:clamp(.5rem,2vh,1.5rem) auto clamp(1rem,4vh,3rem);
+  background:var(--ink);
+  border:var(--hair) solid var(--line);
+  box-shadow:0 0 0 1px #000, 0 60px 140px -60px #000;
+  transition:background .4s var(--ease),border-color .4s var(--ease);
+}
+.stack{padding:0 var(--gut)}
+.sec{padding-block:clamp(2.6rem,7vw,5rem);scroll-margin-top:52px;border-top:var(--hair) solid var(--line)}
+.sec--hero{border-top:0}
+
+/* trilhos laterais */
+.rail{
+  position:absolute;top:70px;bottom:70px;width:34px;
+  display:none;flex-direction:column;justify-content:space-between;align-items:center;
+  font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--line);
+}
+.rail span{writing-mode:vertical-rl;white-space:nowrap}
+.rail--l{left:-38px}
+.rail--r{right:-38px}
+.rail--r span{rotate:180deg}
+.rail::before,.rail::after{
+  content:"";position:absolute;left:50%;width:9px;height:1px;background:var(--line);translate:-50% 0;
+}
+.rail::before{top:-8px}
+.rail::after{bottom:-8px}
+@media (min-width:1180px){.rail{display:flex}}
+
+/* barra de estado pegajosa */
+.status{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;gap:.5rem;
+  padding:.45rem .7rem;
+  background:color-mix(in srgb,var(--ink) 88%,transparent);
+  backdrop-filter:blur(7px) saturate(1.2);
+  border-bottom:var(--hair) solid var(--line);
+  font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.1em;
+}
+.status__mark{color:var(--sig);cursor:pointer;font-size:.8rem;line-height:1;transition:color .3s}
+.status__mark:hover{color:var(--bone)}
+.status__prompt{color:var(--steel)}
+.status__sep{color:var(--line)}
+.status__path{color:var(--bone);min-width:8ch}
+.status__cursor{width:7px;height:11px;background:var(--sig);animation:blink 1.05s steps(1) infinite}
+.status__spacer{flex:1}
+.status__clock{color:var(--bone);font-variant-numeric:tabular-nums}
+.status__utc{color:var(--line)}
+.status__pos{color:var(--steel);font-variant-numeric:tabular-nums}
+@media (max-width:640px){
+  .status__utc,.status__pos,.bars{display:none}
+}
+@keyframes blink{50%{opacity:0}}
+
+.bars{display:flex;align-items:flex-end;gap:2px;height:11px}
+.bars i{width:2px;height:100%;background:var(--steel);transform-origin:bottom;animation:pump 1.6s var(--ease) infinite}
+.bars i:nth-child(2){animation-delay:.2s;background:var(--steel)}
+.bars i:nth-child(3){animation-delay:.4s}
+.bars i:nth-child(4){animation-delay:.6s;background:var(--sig)}
+.bars i:nth-child(5){animation-delay:.8s}
+@keyframes pump{0%,100%{transform:scaleY(.25)}40%{transform:scaleY(1)}}
+
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:150;background:transparent}
+.progress span{display:block;height:100%;width:100%;background:var(--sig);transform:scaleX(0);transform-origin:0 50%}
+
+/* grelhas utilitárias */
+.cols{display:grid;gap:clamp(1.4rem,3vw,2.6rem)}
+@media (min-width:820px){
+  .cols--about{grid-template-columns:1.55fr .9fr}
+  .cols--split{grid-template-columns:1fr 1fr}
+}
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+
+/* rodapé de secção */
+.secfoot{
+  margin-top:1.6rem;padding-top:.6rem;border-top:1px dashed var(--line);
+  display:flex;gap:1rem;justify-content:space-between;flex-wrap:wrap;
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--line);
+}
+.secfoot b{color:var(--steel);font-weight:400}

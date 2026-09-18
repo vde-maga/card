@@ -1,0 +1,84 @@
+/* três vozes: condensada mecânica (display), serifada académica (peso),
+   monoespaçada (dados). a verticalidade é forçada com scaleY — é o truque
+   que dá aquele ar de cartão de título dos anos 90. */
+
+.mono{font-family:var(--ff-mono);font-variant-ligatures:none}
+
+.micro{
+  font-family:var(--ff-mono);
+  font-size:.625rem;
+  line-height:1.4;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--mute);
+}
+.micro--sig{color:var(--sig)}
+.micro--steel{color:var(--steel)}
+
+.cond{
+  font-family:var(--ff-display);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.015em;
+  line-height:.94;
+}
+
+.serif{
+  font-family:var(--ff-serif);
+  font-size:clamp(1.05rem,2.4vw,1.5rem);
+  line-height:1.35;
+  font-style:italic;
+  color:var(--bone);
+}
+
+.tall{display:inline-block;transform:scaleY(1.1);transform-origin:bottom left}
+
+/* o mega-título do hero */
+.mega{
+  font-family:var(--ff-display);
+  font-weight:800;
+  font-size:clamp(3.1rem,13.5vw,8.2rem);
+  line-height:.8;
+  letter-spacing:-.005em;
+  text-transform:uppercase;
+  display:block;
+  transform:scaleY(1.14);
+  transform-origin:bottom left;
+}
+.mega--outline{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--sig);
+  text-stroke:1.5px var(--sig);
+}
+.mega--bone{color:var(--bone)}
+
+/* cabeçalho de secção */
+.sechead{
+  display:flex;align-items:baseline;gap:.85rem;flex-wrap:wrap;
+  border-bottom:var(--hair) solid var(--line);
+  padding-bottom:.55rem;margin-bottom:clamp(1.5rem,3vw,2.4rem);
+}
+.sechead__num{
+  font-family:var(--ff-display);font-weight:800;
+  font-size:clamp(1.5rem,4vw,2.3rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1.2px var(--sig);
+  display:inline-block;transform:scaleY(1.2);transform-origin:bottom;
+}
+.sechead__title{
+  font-family:var(--ff-display);font-weight:700;
+  font-size:clamp(1.6rem,5vw,2.9rem);line-height:.9;
+  text-transform:uppercase;letter-spacing:.02em;
+  display:inline-block;transform:scaleY(1.1);transform-origin:bottom left;
+}
+.sechead__rule{flex:1 1 60px;height:0;border-top:1px dashed var(--line);min-width:20px}
+.sechead__path{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.14em;color:var(--steel)}
+.sechead__note{width:100%;font-size:.72rem;color:var(--mute);letter-spacing:.04em;margin-top:.35rem;max-width:62ch}
+
+p{max-width:68ch}
+strong{color:var(--bone);font-weight:600}
+em{color:var(--steel);font-style:normal}
+code,kbd{
+  font-family:var(--ff-mono);font-size:.86em;
+  border:var(--hair) solid var(--line);padding:.05em .35em;background:var(--surface);
+}
+kbd{border-color:var(--steel);color:var(--steel)}
