@@ -20,26 +20,26 @@ export const CONTENT = {
     hero: {
         impressao: "first impression",
         ep: "ep-01",
-        nome: ["Piroca", "Cona"], // linha 1 cheia, linha 2 contorno vermelho
+        nome: ["vde-maga"], // linha 1 cheia, linha 2 contorno vermelho
         frase: "Trying to rationalize life, \none movie at a time",
         resumo: "This is my little space on the internet. I made it to serve as a linktree for my things on the web but now it has more than that. Find more about myself, down below",
-        // dados: [{
-        //         k: "sistema",
-        //         v: "linux / dwm"
-        //     },
-        //     {
-        //         k: "local",
-        //         v: "lisboa · pt"
-        //     },
-        //     {
-        //         k: "estado",
-        //         v: "aberto a trabalho"
-        //     },
-        //     {
-        //         k: "build",
-        //         v: "2026.09 · static"
-        //     },
-        // ],
+         dados: [{
+                 k: "sistema",
+                 v: "linux / dwm"
+             },
+             {
+                 k: "local",
+                 v: "lisboa · pt"
+             },
+             {
+                 k: "estado",
+                 v: "aberto a trabalho"
+             },
+             {
+                 k: "build",
+                 v: "2026.09 · static"
+             },
+         ],
         acoes: [
 			{
                 label: "./about_me",
@@ -53,7 +53,7 @@ export const CONTENT = {
             },
             {
                 label: "./github",
-                href: "https://github.com/",
+                href: "https://github.com/vde-maga",
                 seta: "↗",
                 externo: true
             },
@@ -110,11 +110,25 @@ export const CONTENT = {
                 tipo: "c · 42",
                 ano: "2026",
                 desc: "An implementation of a Unix shell in the C language that offers basic command interpreter functionality, including parsing, command execution, redirection, pipes, and environment variable manipulation.",
-                tags: ["c", "posix", "signals", "readline", "AST"],
+                tags: ["c", "posix", "signals", "readline", "ast"],
                 thumb: "/assets/img/projects/minishell.jpeg",
                 links: [{
                         label: "repo",
                         href: "https://github.com/vde-maga/42-minishell"
+                    },
+                ],
+            },
+			{
+                id: "discord compressor",
+                nome: "./discord-compress",
+                tipo: "go",
+                ano: "2026",
+                desc: "A lightweight, robust, and universal Command-Line Interface (CLI) tool designed to compress videos to strictly meet Discord's file size limits (e.g., 20MB or 50MB) using modern codecs (AV1/VP9 + Opus).",
+                tags: ["go", "ffmpeg"],
+                thumb: "/assets/img/projects/minishell.jpeg",
+                links: [{
+                        label: "repo",
+                        href: "https://github.com/vde-maga/Discord-Compressor"
                     },
                 ],
             },
@@ -186,59 +200,53 @@ export const CONTENT = {
         caminho: "./links",
         nota: "ln -s — sítios onde existo fora daqui.",
         grupos: [{
-                titulo: "~/links/público",
+                titulo: "~/links/public",
                 itens: [{
                         label: "github",
-                        href: "https://github.com/",
-                        nota: "código",
+                        href: "https://github.com/vde-maga",
+                        // nota: "código",
                         perm: "drwxr-xr-x"
                     },
                     {
-                        label: "42 profile",
-                        href: "https://profile.intra.42.fr/users/",
-                        nota: "intra",
-                        perm: "-rw-r--r--"
+                        label: "letterboxd",
+                        href: "https://letterboxd.com/Miraiy/",
+                        //nota: "Filmes de Freak",
+                        perm: "-r--r--r--"
                     },
                     {
-                        label: "bandcamp",
-                        href: "https://bandcamp.com/",
-                        nota: "ruído favorito",
-                        perm: "-rw-r--r--"
-                    },
-                    {
-                        label: "arena",
-                        href: "https://are.na/",
-                        nota: "imagem",
+                        label: "last.fm",
+                        href: "https://www.last.fm/user/Miraiy",
+                        //nota: "ruído favorito",
                         perm: "-rw-r--r--"
                     },
                 ],
             },
             {
-                titulo: "~/links/directo",
+                titulo: "~/links/direct",
                 itens: [{
                         label: "email",
                         href: "mailto:oi@example.pt",
-                        nota: "respondo",
+                        //nota: "respondo",
                         perm: "-rw-------"
                     },
                     {
                         label: "cv.pdf",
                         href: "assets/cv.pdf",
-                        nota: "pt/eng · 2026",
+                        //nota: "pt/eng · 2026",
                         perm: "-rw-r--r--"
                     },
-                    {
-                        label: "pgp",
-                        href: "assets/keys.asc",
-                        nota: "0xA1B2C3",
-                        perm: "-rw-r--r--"
-                    },
-                    {
-                        label: "rss",
-                        href: "feed.xml",
-                        nota: "notas soltas",
-                        perm: "-rw-r--r--"
-                    },
+                    // {
+                    //     label: "pgp",
+                    //     href: "assets/keys.asc",
+                    //     nota: "0xA1B2C3",
+                    //     perm: "-rw-r--r--"
+                    // },
+                    // {
+                    //     label: "rss",
+                    //     href: "feed.xml",
+                    //     nota: "notas soltas",
+                    //     perm: "-rw-r--r--"
+                    // },
                 ],
             },
         ],

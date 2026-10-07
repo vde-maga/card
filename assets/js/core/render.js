@@ -62,12 +62,12 @@ function renderHero(h) {
       el("div", { class: "hero__name", "data-reveal": "" }, lines),
       el("p", { class: "serif hero__say", "data-reveal": "", style: "--i:1", text: h.frase }),
       el("p", { class: "hero__sum", "data-reveal": "", style: "--i:2", html: h.resumo }),
-    //   el("dl", { class: "meta", "data-reveal": "", style: "--i:3" },
-    //     h.dados.map((d) => el("div", {}, [
-    //       el("dt", { text: d.k }),
-    //       el("dd", { text: d.v }),
-    //     ]))
-    //   ),
+      el("dl", { class: "meta", "data-reveal": "", style: "--i:3" },
+        h.dados.map((d) => el("div", {}, [
+           el("dt", { text: d.k }),
+           el("dd", { text: d.v }),
+         ]))
+       ),
       el("div", { class: "acts", "data-reveal": "", style: "--i:4" },
         h.acoes.map((a) =>
           el("a", {
